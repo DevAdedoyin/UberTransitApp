@@ -18,7 +18,23 @@
         android:id="@+id/btnRequestCar"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Request a Car"
+        android:text="R equest a Car"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/btnBeepBeep"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Beep Beep"
+        android:backgroundTint="@color/colorPrimaryDark"
+        android:textColor="#fff"/>
+
+    <Button
+        android:id="@+id/btnLogoutFromPassengerActivity"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Logout from App"
         android:backgroundTint="@color/colorPrimaryDark"
         android:textColor="#fff"/>
 

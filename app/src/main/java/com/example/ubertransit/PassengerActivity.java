@@ -27,6 +27,7 @@ import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 import com.parse.DeleteCallback;
 import com.parse.FindCallback;
+import com.parse.LogOutCallback;
 import com.parse.Parse;
 import com.parse.ParseException;
 import com.parse.ParseGeoPoint;
@@ -66,8 +67,23 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
                 if (objects.size() > 0 && e == null){
 
                     isUberCancelled = false;
+                    btnRequestCar.setText("Cancel Your Uber Request");
 
                 }
+            }
+        });
+
+        findViewById(R.id.btnLogoutFromPassengerActivity).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                ParseUser.logOutInBackground(new LogOutCallback() {
+                    @Override
+                    public void done(ParseException e) {
+                        if (e == null)
+                            finish();
+                    }
+                });
             }
         });
     }
@@ -173,8 +189,8 @@ public class PassengerActivity extends FragmentActivity implements OnMapReadyCal
 
                             Toast.makeText(PassengerActivity.this, "A car request is sent", Toast.LENGTH_SHORT).show();
 
-                            btnRequestCar.setText("Cancel your uber order");
                             isUberCancelled = false;
+                            btnRequestCar.setText("Cancel your uber order");
 
                         }
                     }
